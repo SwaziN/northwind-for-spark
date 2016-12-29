@@ -4,7 +4,7 @@
 # create custom clear command to clear screen
 import os, platform
 system=platform.system()
-if system.upper()=='WINDOWS':
+if system.upper()=='WINDOWS':   
     clear = lambda: os.system('cls')
 else:
     clear = lambda: os.system('clear')
@@ -112,6 +112,7 @@ orders=dataframes['orders']
 order_details=dataframes['order_details']
 products=dataframes['products']
 suppliers=dataframes['suppliers']
+
 joined=orders.filter(orders.OrderDate >= '1997-01-01').filter(orders.OrderDate <= '1997-06-30' )\
     .join(order_details, orders.OrderID==order_details.OrderID)\
     .join(products, order_details.ProductID==products.ProductID)\
